@@ -1,0 +1,28 @@
+﻿@page "/mydata"
+<h3>Data Component</h3>
+
+@if (_getDataError || _items is null)
+{
+    <p>Impossible de récupérer les données</p>
+    <p class="text-danger">@_errorMessage</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Data data in _items)
+            {
+                <tr>
+                    <td>@data.Id</td>
+                    <td>@data.Value</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
